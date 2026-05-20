@@ -380,6 +380,54 @@ const Header = () => {
            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
+
+      {/* Mobile Navigation Drawer */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white border-t border-gray-100 px-6 py-6 space-y-4 flex flex-col"
+          >
+            <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-[15px] font-bold text-gray-700">Home</Link>
+            
+            {/* Mobile Solution Nested Options */}
+            <div className="space-y-2 pl-3 border-l-2 border-gray-200">
+              <span className="text-[12px] font-black text-gray-400 uppercase tracking-wider">Solution</span>
+              <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className="block text-[14px] font-semibold text-gray-600">Solution Main</Link>
+              <Link to="/emerging-tech-training" onClick={() => setIsMobileMenuOpen(false)} className="block text-[14px] font-semibold text-gray-600">Emerging Tech Training</Link>
+              <Link to="/network-security" onClick={() => setIsMobileMenuOpen(false)} className="block text-[14px] font-semibold text-gray-600">Network Security</Link>
+              <Link to="/security-operations-center" onClick={() => setIsMobileMenuOpen(false)} className="block text-[14px] font-semibold text-gray-600">Security Operations Center</Link>
+              <Link to="/control-engineering" onClick={() => setIsMobileMenuOpen(false)} className="block text-[14px] font-semibold text-gray-600">Control Engineering</Link>
+              <Link to="/gis-mapping" onClick={() => setIsMobileMenuOpen(false)} className="block text-[14px] font-semibold text-gray-600">GIS Mapping</Link>
+              <Link to="/digital-learning" onClick={() => setIsMobileMenuOpen(false)} className="block text-[14px] font-semibold text-gray-600">Digital Learning</Link>
+            </div>
+
+            {/* Mobile About Nested Options */}
+            <div className="space-y-2 pl-3 border-l-2 border-gray-200">
+              <span className="text-[12px] font-black text-gray-400 uppercase tracking-wider">About Links</span>
+              <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="block text-[14px] font-semibold text-gray-600">About Main</Link>
+              <Link to="/resources" onClick={() => setIsMobileMenuOpen(false)} className="block text-[14px] font-semibold text-gray-600">Resources</Link>
+              <Link to="/process" onClick={() => setIsMobileMenuOpen(false)} className="block text-[14px] font-semibold text-gray-600">Process</Link>
+            </div>
+
+            {/* Mobile Tech Nested Options */}
+            <div className="space-y-2 pl-3 border-l-2 border-gray-200">
+              <span className="text-[12px] font-black text-gray-400 uppercase tracking-wider">Tech Stack</span>
+              <Link to="/tech" onClick={() => setIsMobileMenuOpen(false)} className="block text-[14px] font-semibold text-gray-600">Tech Main</Link>
+              <Link to="/blockchain" onClick={() => setIsMobileMenuOpen(false)} className="block text-[14px] font-semibold text-gray-600">Blockchain</Link>
+              <Link to="/ai" onClick={() => setIsMobileMenuOpen(false)} className="block text-[14px] font-semibold text-gray-600">AI</Link>
+              <Link to="/iot" onClick={() => setIsMobileMenuOpen(false)} className="block text-[14px] font-semibold text-gray-600">IoT</Link>
+            </div>
+
+            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-[15px] font-bold text-gray-700">Contact</Link>
+            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="w-full text-center inline-block bg-[#042d4d] text-white font-bold py-3 rounded-xl shadow-md">
+              Contact us
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
